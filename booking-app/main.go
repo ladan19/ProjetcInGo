@@ -6,7 +6,7 @@ func main() {
 	var conferenceName = "Go Conference"
 	const conferenceTickets = 50
 	var remainingTickets = 50
-	var bookings = [50]string{}
+	var bookings []string
 
 	fmt.Printf("conferenceName is %T, conferenceTickets is %T\n", conferenceName, conferenceTickets)
 
@@ -38,9 +38,11 @@ func main() {
 	fmt.Scan(&userTicket)
 
 	remainingTickets = remainingTickets - userTicket
-	bookings[0] = firtsName + " " + lastName
+	// We are using slices for dynamic apped
+	// bookings[0] = firtsName + " " + lastName
+	bookings = append(bookings, firtsName+" "+lastName)
 
-	fmt.Printf("The whole array: %v \n", bookings)
+	fmt.Printf("The whole array slice: %v \n", bookings)
 	fmt.Printf("The first value: %v \n", bookings[0])
 	fmt.Printf("Array length: %v \n", len(bookings))
 	fmt.Printf("Array type: %T \n", bookings)
@@ -48,5 +50,7 @@ func main() {
 	// I'm using printf to do this
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmantion email at %v \n", firtsName, lastName, userTicket, email)
 	fmt.Printf("%v tickets remaing  for %v \n", remainingTickets, conferenceName)
+
+	fmt.Printf("")
 
 }
